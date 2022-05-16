@@ -30,5 +30,3 @@ export function createMatrix(width, height) {
   }
   return matrixArr;
 }
-
-// console.log(createMatrix(3, 3));

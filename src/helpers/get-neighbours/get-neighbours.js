@@ -54,117 +54,117 @@ export function getNeighbours(matrix, width) {
   }
 }
 
-const matrix = [
-  {
-    x: 0,
-    y: 0,
-    neighbours: [],
-    position: {
-      firstRow: true,
-      firstCol: true,
-      lastRow: false,
-      lastCol: false,
-    },
-    isAlive: false,
-  },
-  {
-    x: 1,
-    y: 0,
-    neighbours: [],
-    position: {
-      firstRow: true,
-      firstCol: false,
-      lastRow: false,
-      lastCol: false,
-    },
-    isAlive: false,
-  },
-  {
-    x: 2,
-    y: 0,
-    neighbours: [],
-    position: {
-      firstRow: true,
-      firstCol: false,
-      lastRow: false,
-      lastCol: true,
-    },
-    isAlive: false,
-  },
-  {
-    x: 0,
-    y: 1,
-    neighbours: [],
-    position: {
-      firstRow: false,
-      firstCol: true,
-      lastRow: false,
-      lastCol: false,
-    },
-    isAlive: false,
-  },
-  {
-    x: 1,
-    y: 1,
-    neighbours: [],
-    position: {
-      firstRow: false,
-      firstCol: false,
-      lastRow: false,
-      lastCol: false,
-    },
-    isAlive: false,
-  },
-  {
-    x: 2,
-    y: 1,
-    neighbours: [],
-    position: {
-      firstRow: false,
-      firstCol: false,
-      lastRow: false,
-      lastCol: true,
-    },
-    isAlive: false,
-  },
-  {
-    x: 0,
-    y: 2,
-    neighbours: [],
-    position: {
-      firstRow: false,
-      firstCol: true,
-      lastRow: true,
-      lastCol: false,
-    },
-    isAlive: false,
-  },
-  {
-    x: 1,
-    y: 2,
-    neighbours: [],
-    position: {
-      firstRow: false,
-      firstCol: false,
-      lastRow: true,
-      lastCol: false,
-    },
-    isAlive: false,
-  },
-  {
-    x: 2,
-    y: 2,
-    neighbours: [],
-    position: {
-      firstRow: false,
-      firstCol: false,
-      lastRow: true,
-      lastCol: true,
-    },
-    isAlive: false,
-  },
-];
+// const matrix = [
+//   {
+//     x: 0,
+//     y: 0,
+//     neighbours: [],
+//     position: {
+//       firstRow: true,
+//       firstCol: true,
+//       lastRow: false,
+//       lastCol: false,
+//     },
+//     isAlive: false,
+//   },
+//   {
+//     x: 1,
+//     y: 0,
+//     neighbours: [],
+//     position: {
+//       firstRow: true,
+//       firstCol: false,
+//       lastRow: false,
+//       lastCol: false,
+//     },
+//     isAlive: false,
+//   },
+//   {
+//     x: 2,
+//     y: 0,
+//     neighbours: [],
+//     position: {
+//       firstRow: true,
+//       firstCol: false,
+//       lastRow: false,
+//       lastCol: true,
+//     },
+//     isAlive: false,
+//   },
+//   {
+//     x: 0,
+//     y: 1,
+//     neighbours: [],
+//     position: {
+//       firstRow: false,
+//       firstCol: true,
+//       lastRow: false,
+//       lastCol: false,
+//     },
+//     isAlive: false,
+//   },
+//   {
+//     x: 1,
+//     y: 1,
+//     neighbours: [],
+//     position: {
+//       firstRow: false,
+//       firstCol: false,
+//       lastRow: false,
+//       lastCol: false,
+//     },
+//     isAlive: false,
+//   },
+//   {
+//     x: 2,
+//     y: 1,
+//     neighbours: [],
+//     position: {
+//       firstRow: false,
+//       firstCol: false,
+//       lastRow: false,
+//       lastCol: true,
+//     },
+//     isAlive: false,
+//   },
+//   {
+//     x: 0,
+//     y: 2,
+//     neighbours: [],
+//     position: {
+//       firstRow: false,
+//       firstCol: true,
+//       lastRow: true,
+//       lastCol: false,
+//     },
+//     isAlive: false,
+//   },
+//   {
+//     x: 1,
+//     y: 2,
+//     neighbours: [],
+//     position: {
+//       firstRow: false,
+//       firstCol: false,
+//       lastRow: true,
+//       lastCol: false,
+//     },
+//     isAlive: false,
+//   },
+//   {
+//     x: 2,
+//     y: 2,
+//     neighbours: [],
+//     position: {
+//       firstRow: false,
+//       firstCol: false,
+//       lastRow: true,
+//       lastCol: true,
+//     },
+//     isAlive: false,
+//   },
+// ];
 
-getNeighbours(matrix, 3);
+// getNeighbours(matrix, 3);
 
-console.log(matrix);
+// console.log(matrix);

@@ -1,12 +1,21 @@
-import { width, height } from './data/global-variables.js';
+import { createMatrix } from './helpers/create-matrix/create-matrix.js';
 
-import { matrix } from './helpers/create-matrix/create-matrix.js';
 import { mapCells } from './helpers/map-cells/map-cells.js';
 
-const life = true;
+import { getNeighbours } from './helpers/get-neighbours/get-neighbours.js';
 
-// LA MANIPULACIÓN HA DE SER TODA EN EL MISMO ARCHIVO…
-// LOS MÓDULOS IMPORTARÁN SOLAMENTE EL CÓDIGO PARA SER TESTADO INDIDVIDUALMENTE
+// const life = true;
 
-mapCells(matrix);
-console.log(matrix[15]);
+// start the matrix
+const matrix = createMatrix(3, 3);
+
+// map cells to define their absolute position within the matrix
+mapCells(matrix, 3, 3);
+getNeighbours(matrix, 3);
+
+console.log(matrix);
+
+// console.log('matrix after mapCells', matrix, matrix.length);
+
+// // add indexes from the neighbours
+// console.log('matrix after mapCells', matrix);
