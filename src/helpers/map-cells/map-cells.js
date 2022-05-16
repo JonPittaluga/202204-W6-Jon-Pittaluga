@@ -1,8 +1,9 @@
-import { matrix } from '../create-matrix/create-matrix.js';
+// import { width, height } from '../../data/global-variables.js';
 
-import { width, height } from '../../data/global-variables.js';
+// let width = 4;
+// let height = 3;
 
-export function mapCells(matrix) {
+export function mapCells(matrix, width, height) {
   for (let i = 0; i < matrix.length; i++) {
     // firstRow
     if (i < width) {
@@ -13,7 +14,7 @@ export function mapCells(matrix) {
       matrix[i].position.lastRow = true;
     }
     // firstCol
-    if (i === 0 || i % width === 0) {
+    if (i % width === 0) {
       matrix[i].position.firstCol = true;
     }
     // lastCol
@@ -22,3 +23,114 @@ export function mapCells(matrix) {
     }
   }
 }
+
+const matrix = [
+  {
+    x: 0,
+    y: 0,
+    neighbours: [],
+    position: {
+      firstRow: false,
+      firstCol: false,
+      lastRow: false,
+      lastCol: false,
+    },
+    isAlive: false,
+  },
+  {
+    x: 1,
+    y: 0,
+    neighbours: [],
+    position: {
+      firstRow: false,
+      firstCol: false,
+      lastRow: false,
+      lastCol: false,
+    },
+    isAlive: false,
+  },
+  {
+    x: 2,
+    y: 0,
+    neighbours: [],
+    position: {
+      firstRow: false,
+      firstCol: false,
+      lastRow: false,
+      lastCol: false,
+    },
+    isAlive: false,
+  },
+  {
+    x: 0,
+    y: 1,
+    neighbours: [],
+    position: {
+      firstRow: false,
+      firstCol: false,
+      lastRow: false,
+      lastCol: false,
+    },
+    isAlive: false,
+  },
+  {
+    x: 1,
+    y: 1,
+    neighbours: [],
+    position: {
+      firstRow: false,
+      firstCol: false,
+      lastRow: false,
+      lastCol: false,
+    },
+    isAlive: false,
+  },
+  {
+    x: 2,
+    y: 1,
+    neighbours: [],
+    position: {
+      firstRow: false,
+      firstCol: false,
+      lastRow: false,
+      lastCol: false,
+    },
+    isAlive: false,
+  },
+  {
+    x: 0,
+    y: 2,
+    neighbours: [],
+    position: {
+      firstRow: false,
+      firstCol: false,
+      lastRow: false,
+      lastCol: false,
+    },
+    isAlive: false,
+  },
+  {
+    x: 1,
+    y: 2,
+    neighbours: [],
+    position: {
+      firstRow: false,
+      firstCol: false,
+      lastRow: false,
+      lastCol: false,
+    },
+    isAlive: false,
+  },
+  {
+    x: 2,
+    y: 2,
+    neighbours: [],
+    position: {
+      firstRow: false,
+      firstCol: false,
+      lastRow: false,
+      lastCol: false,
+    },
+    isAlive: false,
+  },
+];
