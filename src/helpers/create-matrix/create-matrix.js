@@ -1,197 +1,34 @@
 /////////////////// createMatrix ///////////////////
+class Cell {
+  constructor(
+    x,
+    y,
+    neighbours = [],
+    position = {
+      firstRow: false,
+      firstCol: false,
+      lastRow: false,
+      lastCol: false,
+    },
+    isAlive = false
+  ) {
+    this.x = x;
+    this.y = y;
+    this.neighbours = neighbours;
+    this.position = position;
+    this.isAlive = isAlive;
+  }
+}
 
-// Now its hardcoded
-export const matrix = [
-  {
-    x: 0,
-    y: 0,
-    isAlive: true,
-    position: {
-      firstRow: false,
-      firstCol: false,
-      lastRow: false,
-      lastCol: false,
-    },
-    neighbours: [],
-  },
-  {
-    x: 0,
-    y: 1,
-    isAlive: true,
-    position: {
-      firstRow: false,
-      firstCol: false,
-      lastRow: false,
-      lastCol: false,
-    },
-    neighbours: [],
-  },
-  {
-    x: 0,
-    y: 2,
-    isAlive: true,
-    position: {
-      firstRow: false,
-      firstCol: false,
-      lastRow: false,
-      lastCol: false,
-    },
-    neighbours: [],
-  },
-  {
-    x: 0,
-    y: 3,
-    isAlive: true,
-    position: {
-      firstRow: false,
-      firstCol: false,
-      lastRow: false,
-      lastCol: false,
-    },
-    neighbours: [],
-  },
-  {
-    x: 1,
-    y: 0,
-    isAlive: true,
-    position: {
-      firstRow: false,
-      firstCol: false,
-      lastRow: false,
-      lastCol: false,
-    },
-    neighbours: [],
-  },
-  {
-    x: 1,
-    y: 1,
-    isAlive: true,
-    position: {
-      firstRow: false,
-      firstCol: false,
-      lastRow: false,
-      lastCol: false,
-    },
-    neighbours: [],
-  },
-  {
-    x: 1,
-    y: 2,
-    isAlive: true,
-    position: {
-      firstRow: false,
-      firstCol: false,
-      lastRow: false,
-      lastCol: false,
-    },
-    neighbours: [],
-  },
-  {
-    x: 1,
-    y: 3,
-    isAlive: true,
-    position: {
-      firstRow: false,
-      firstCol: false,
-      lastRow: false,
-      lastCol: false,
-    },
-    neighbours: [],
-  },
-  {
-    x: 2,
-    y: 0,
-    isAlive: true,
-    position: {
-      firstRow: false,
-      firstCol: false,
-      lastRow: false,
-      lastCol: false,
-    },
-    neighbours: [],
-  },
-  {
-    x: 2,
-    y: 1,
-    isAlive: true,
-    position: {
-      firstRow: false,
-      firstCol: false,
-      lastRow: false,
-      lastCol: false,
-    },
-    neighbours: [],
-  },
-  {
-    x: 2,
-    y: 2,
-    isAlive: true,
-    position: {
-      firstRow: false,
-      firstCol: false,
-      lastRow: false,
-      lastCol: false,
-    },
-    neighbours: [],
-  },
-  {
-    x: 2,
-    y: 3,
-    isAlive: true,
-    position: {
-      firstRow: false,
-      firstCol: false,
-      lastRow: false,
-      lastCol: false,
-    },
-    neighbours: [],
-  },
-  {
-    x: 3,
-    y: 0,
-    isAlive: true,
-    position: {
-      firstRow: false,
-      firstCol: false,
-      lastRow: false,
-      lastCol: false,
-    },
-    neighbours: [],
-  },
-  {
-    x: 3,
-    y: 1,
-    isAlive: true,
-    position: {
-      firstRow: false,
-      firstCol: false,
-      lastRow: false,
-      lastCol: false,
-    },
-    neighbours: [],
-  },
-  {
-    x: 3,
-    y: 2,
-    isAlive: true,
-    position: {
-      firstRow: false,
-      firstCol: false,
-      lastRow: false,
-      lastCol: false,
-    },
-    neighbours: [],
-  },
-  {
-    x: 3,
-    y: 3,
-    isAlive: true,
-    position: {
-      firstRow: false,
-      firstCol: false,
-      lastRow: false,
-      lastCol: false,
-    },
-    neighbours: [],
-  },
-];
+export function createMatrix(width, height) {
+  const matrixArr = [];
+
+  for (let j = 0; j < height; j++) {
+    for (let i = 0; i < width; i++) {
+      matrixArr.push(new Cell(i, j));
+    }
+  }
+  return matrixArr;
+}
+
+// console.log(createMatrix(3, 3));
