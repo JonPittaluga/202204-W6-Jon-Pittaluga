@@ -10,12 +10,14 @@ class Cell {
       lastRow: false,
       lastCol: false,
     },
+    index = null,
     isAlive = false
   ) {
     this.x = x;
     this.y = y;
     this.neighbours = neighbours;
     this.position = position;
+    this.index = index;
     this.isAlive = isAlive;
   }
 }
@@ -28,5 +30,10 @@ export function createMatrix(width, height) {
       matrixArr.push(new Cell(i, j));
     }
   }
+
+  for (let k = 0; k < matrixArr.length; k++) {
+    matrixArr[k].index = k;
+  }
+
   return matrixArr;
 }
