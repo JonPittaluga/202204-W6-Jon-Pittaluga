@@ -1,6 +1,6 @@
 // to find some random cells and make them alive
 
-export function turnOnCells(matrix, minAlive) {
+export function turnOnCells(matrix, minAlive, maxPercentage) {
   // define how many will be alive
 
   const getRandomNumberBetween = (min, max) => {
@@ -9,7 +9,7 @@ export function turnOnCells(matrix, minAlive) {
 
   const numberOfAliveCells = getRandomNumberBetween(
     minAlive,
-    matrix.length / 7
+    matrix.length / maxPercentage
   );
 
   for (let i = 0; i < numberOfAliveCells; i++) {

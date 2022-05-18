@@ -39,7 +39,7 @@ describe('Given a matrix passed as a parameter mutates it and changes some of it
         isAlive: false,
       },
     ];
-    turnOnCells(matrix);
+    turnOnCells(matrix, 2, 0.5);
     test('At least 2 items are alive', () => {
       const matrixFiltered = matrix.filter((cell) => cell.isAlive);
       expect(matrixFiltered.length).toBeGreaterThanOrEqual(2); //
