@@ -7,8 +7,8 @@ import { lifeStatus } from './helpers/life-status/life-status.js';
 import { filterAliveCells } from './helpers/filter-alive-cells/filter-alive-cells.js';
 
 // Step 1: Define the size of the matrix
-const width = 4;
-const height = 4;
+const width = 12;
+const height = 12;
 
 // Step 2: start the matrix
 const matrix = createMatrix(width, height);
@@ -21,41 +21,17 @@ mapCells(matrix, width, height);
 getNeighbours(matrix, width);
 
 // Step 5: some cells change its isAlive property to true. Accepts the mutable matrix, a min value and a maximum, being apercentage of the matrix length -mutation-
-// turnOnCells(matrix, 3, 0.5);
+turnOnCells(matrix, 10, 0.4);
 
-// TODO: Fake this to check
-
-// THE ALGORITHM IS NOT WORKING.
-matrix[0].isAlive = true;
-matrix[1].isAlive = true;
-matrix[5].isAlive = true;
-matrix[10].isAlive = true;
-
-// console.log(matrix);
+// Hardcoded checks
+// matrix[0].isAlive = true;
+// matrix[1].isAlive = true;
 
 // Step 6: reduces unused properties -mutation-
 removeProperties(matrix);
 
 // the matrix is ready
 // console.table(matrix, ['index', 'isAlive']);
-
-// gameOfLife logic… mutates the matrix once
-
-// console.table(
-//   matrix.filter((cell) => !cell.isAlive),
-//   ['isAlive', 'neighbours']
-// );
-// console.table(
-//   matrix.filter((cell) => cell.isAlive),
-//   ['isAlive', 'neighbours']
-// );
-
-let arrWithOnlyAliveCells = filterAliveCells(matrix);
-
-// console.log(
-//   matrix.filter((cell) => cell.isAlive),
-//   ['isAlive']
-// );
 
 function renderBoard() {
   let board = [];
@@ -64,15 +40,35 @@ function renderBoard() {
 
   for (let i = 0; i < matrix.length; i++) {
     if (matrix[i].isAlive === true) {
-      board[i] = `${matrix[i].index}`;
+      // board[i] = `${matrix[i].index}`;
+      board[i] = `X`;
       countAlive++;
     } else board[i] = ' ';
   }
-  return console.log('countAlive:', countAlive, 'board:', board);
+
+  if (countAlive) {
+    console.log('countAlive:', countAlive, board);
+  }
 }
 
-renderBoard();
-lifeStatus(matrix);
+function repeatCode() {
+  let aliveCells = filterAliveCells(matrix);
+  renderBoard();
+  lifeStatus(matrix);
+  if (aliveCells.length === 0) {
+    console.log('NO ALIVE CELLS');
+    return;
+  }
+}
+
+const intervalID = setInterval(repeatCode, 1000);
+// setInterval(repeatCode, 1000);
+
+setTimeout(clearInterval, 15000, intervalID);
+
+// renderBoard();
+// lifeStatus(matrix);
+// renderBoard();
 
 // renderBoard();
 // lifeStatus(matrix);
