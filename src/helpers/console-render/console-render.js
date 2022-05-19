@@ -18,16 +18,7 @@ export function consoleRender(matrix) {
       target.style = 'background-color: rgb(39,41,32)';
     }
   }
-
-  if (countAlive) {
-    // console.log('countAlive:', countAlive, board);
-    // console.log(
-    //   `alive cells: ${countAlive} / ${(
-    //     (countAlive * 100) /
-    //     board.length
-    //   ).toFixed(3)}%`
-    // );
-  }
+  console.log('countAlive', countAlive);
 
   return board;
 }
