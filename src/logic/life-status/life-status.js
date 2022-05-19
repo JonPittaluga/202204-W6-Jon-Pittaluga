@@ -2,7 +2,7 @@
 //
 // lifeStatus() works as the 'gameOfLife' algorithm and changes the life status of every cell depending on its neighbours
 
-import { filterAliveCells } from '../../../helpers/filter-alive-cells/filter-alive-cells.js';
+import { filterAliveCells } from '../../helpers/filter-alive-cells/filter-alive-cells.js';
 
 export function lifeStatus(matrix) {
   let temporaryMatrix = matrix.map((cell) => {

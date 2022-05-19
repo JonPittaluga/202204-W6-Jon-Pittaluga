@@ -9,8 +9,8 @@ export const matrixValues = {
   width: 120,
   height: 80,
   minAlive: 6,
-  maxAlive: 10,
-  duration: 3000, // miliseconds
+  maxAlive: 100,
+  duration: 20000, // miliseconds
   renderingSpeed: 50, // miliseconds
 };
 
@@ -37,6 +37,8 @@ const headerInfo__renderingValue = document.querySelector(
   '.header-info__rendering--value'
 );
 
+const buttonStart = document.querySelector('.button-start');
+
 // Rendering the matrix before the game starts
 matrixContainerId.innerHTML = renderMatrix();
 headerInfo__widthValue.innerHTML = matrixValues.width;
@@ -46,4 +48,6 @@ headerInfo__intervalsValue.innerHTML = matrixValues.duration / 1000 + 's';
 headerInfo__renderingValue.innerHTML = matrixValues.renderingSpeed + 'ms';
 
 // To start the game of life
-gameOfLife(matrix);
+const fiatLife = () => gameOfLife(matrix);
+
+buttonStart.addEventListener('click', fiatLife);

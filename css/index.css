@@ -7,17 +7,32 @@ body {
   margin: 0;
   padding: 0;
   background-color: #191a17;
+  color: rgb(125, 226, 47);
 }
 
 .header {
   padding: 2% 5%;
-  color: rgb(125, 226, 47);
 }
 .header .header-info {
   padding-bottom: 3%;
   display: contents;
   flex-direction: row;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
+}
+.header .button-start {
+  position: fixed;
+  top: 6%;
+  right: 5%;
+  font-size: 1.2rem;
+  font-weight: 0;
+  background-color: #191a17;
+  padding: 5px 7px;
+  border-radius: 3%;
+  border-bottom: rgb(125, 226, 47) 2px dotted;
+}
+.header .button-start:hover {
+  background-color: rgb(125, 226, 47);
+  color: #191a17;
 }
 
 .matrix {
@@ -26,6 +41,7 @@ body {
   width: 95%;
   height: 85%;
   margin: 0 auto;
+  aspect-ratio: 1/0.65;
 }
 
 .cell {
@@ -38,6 +54,20 @@ body {
 }
 .cell--isDead {
   background-color: rgb(39, 41, 32);
+}
+.cell .footer {
+  padding: 2% 5%;
+  display: flex;
+  align-items: center;
+}
+.cell .footer-inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.cell .footer-inputs-form {
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 /*# sourceMappingURL=index.css.map */

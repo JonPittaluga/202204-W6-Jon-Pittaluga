@@ -1,6 +1,6 @@
 // mapCells
 
-export default function mapCells(matrix, width, height) {
+export function mapCells(matrix, width, height) {
   for (let i = 0; i < matrix.length; i++) {
     // firstRow
     if (i < width) {
