@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+  margin: 0;
+  padding: 0;
+  background-color: #191a17;
+}
+
+.header {
+  padding: 2% 5%;
+  color: rgb(125, 226, 47);
+}
+.header .header-info {
+  padding-bottom: 3%;
+  display: contents;
+  flex-direction: row;
+  font-size: 0.85rem;
+}
+
+.matrix {
+  display: grid;
+  padding: 0.5% 2%;
+  width: 95%;
+  height: 85%;
+  margin: 0 auto;
+}
+
+.cell {
+  border-radius: 50%;
+  aspect-ratio: 1;
+  margin: 1px !important;
+}
+.cell--isAlive {
+  background-color: rgb(125, 226, 47);
+}
+.cell--isDead {
+  background-color: rgb(39, 41, 32);
+}
+
+/*# sourceMappingURL=index.css.map */

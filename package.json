@@ -5,7 +5,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll --coverage"
+    "test": "jest --watchAll --coverage",
+    "sass:v": "sass --version",
+    "sass": "sass --watch scss/:css/"
   },
   "author": "Jon Pittaluga",
   "license": "ISC",
@@ -14,9 +16,9 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.17.9",
-    "jest": "^28.1.0",
     "husky": "^7.0.4",
-    "sass": "^1.50.1"
+    "jest": "^28.1.0",
+    "sass": "^1.51.0"
   },
   "babel": {
     "env": {
