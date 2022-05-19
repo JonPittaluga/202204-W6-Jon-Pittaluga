@@ -1,4 +1,4 @@
-import { width, matrix } from '../../app.js';
+import { matrix, matrixValues } from '../../app.js';
 
 const renderCell = (cell) => {
   const status = cell.isAlive ? 'isAlive' : 'isDead';
@@ -6,7 +6,7 @@ const renderCell = (cell) => {
 };
 
 export const renderMatrix = () => {
-  const gridColumns = `grid-template-columns: repeat(${width}, 1fr)`;
+  const gridColumns = `grid-template-columns: repeat(${matrixValues.width}, 1fr)`;
   let html = `<div class="matrix" style="${gridColumns}">`;
   const getCellsRendered = matrix.map((cell) => renderCell(cell));
   html += getCellsRendered.join('');
