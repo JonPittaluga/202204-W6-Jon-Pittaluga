@@ -1,45 +1,53 @@
-import { createMatrix } from './helpers/create-matrix/create-matrix.js';
-import { mapCells } from './helpers/map-cells/map-cells.js';
-import { getNeighbours } from './helpers/get-neighbours/get-neighbours.js';
-import { turnOnCells } from './helpers/turn-on-cells/turn-on-cells.js';
-import { removeProperties } from './helpers/remove-properties/remove-properties.js';
-import { lifeStatus } from './helpers/life-status/life-status.js';
-import { filterAliveCells } from './helpers/filter-alive-cells/filter-alive-cells.js';
-import { consoleRender } from './helpers/console-render/console-render.js';
-// Step 1: Define the size of the matrix
-const width = 40; // max400
-const height = 30; // max300
+import createMatrix from '../src/logic/create-matrix/create-matrix.js';
+import renderMatrix from '../src/rendering/render-matrix/render-matrix.js';
+import gameOfLife from '../src/logic/game-of-life/game-of-life.js';
 
-// Step 2: start the matrix
-const matrix = createMatrix(width, height);
+// GLOBAL VARIABLES & DOM ELEMENTS
 
-// Step 3: map cells to define their absolute position within the matrix -mutation-
-mapCells(matrix, width, height);
+// To define the matrix values and its behaviour
+export const matrixValues = {
+  width: 120,
+  height: 80,
+  minAlive: 6,
+  maxAlive: 100,
+  duration: 20000, // miliseconds
+  renderingSpeed: 50, // miliseconds
+};
 
-// Step 4: for every cell creates an array with its neighbours -mutation-
-getNeighbours(matrix, width);
+// To startup a matrix with the
+export const matrix = createMatrix(matrixValues.width, matrixValues.height);
 
-// Step 5: some cells change its isAlive property to true. Accepts the mutable matrix, a min value and a maximum, being apercentage of the matrix length -mutation-
-turnOnCells(matrix, 10, 0.15);
+export const isThereLife = { life: true };
 
-// Hardcoded checks
-// matrix[0].isAlive = true;
-// matrix[1].isAlive = true;
+export const matrixContainerId = document.querySelector('#matrix-container');
 
-// Step 6: reduces unused properties -mutation-
-removeProperties(matrix);
+const headerInfo__widthValue = document.querySelector(
+  '.header-info__width--value'
+);
+const headerInfo__heightValue = document.querySelector(
+  '.header-info__height--value'
+);
+const headerInfo__cellsValue = document.querySelector(
+  '.header-info__cells--value'
+);
+const headerInfo__intervalsValue = document.querySelector(
+  '.header-info__intervals--value'
+);
+const headerInfo__renderingValue = document.querySelector(
+  '.header-info__rendering--value'
+);
 
-// the matrix is ready, now let's render it in the console
+const buttonStart = document.querySelector('.button-start');
 
-function repeatCode() {
-  let aliveCells = filterAliveCells(matrix);
-  consoleRender(matrix);
-  lifeStatus(matrix);
-  if (aliveCells.length === 0) {
-    console.log('NO ALIVE CELLS');
-    return;
-  }
-}
+// Rendering the matrix before the game starts
+matrixContainerId.innerHTML = renderMatrix();
+headerInfo__widthValue.innerHTML = matrixValues.width;
+headerInfo__heightValue.innerHTML = matrixValues.height;
+headerInfo__cellsValue.innerHTML = matrixValues.width * matrixValues.height;
+headerInfo__intervalsValue.innerHTML = matrixValues.duration / 1000 + 's';
+headerInfo__renderingValue.innerHTML = matrixValues.renderingSpeed + 'ms';
 
-const intervalID = setInterval(repeatCode, 150);
-setTimeout(clearInterval, 15000, intervalID);
+// To start the game of life
+const fiatLife = () => gameOfLife(matrix);
+
+buttonStart.addEventListener('click', fiatLife);

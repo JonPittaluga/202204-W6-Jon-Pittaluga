@@ -1,11 +1,5 @@
 // checks every item in the matrix, and, depending on the description of its position, assigns neighbours
 
-// import { width, height } from '../../data/global-variables.js';
-// import { matrix } from '../create-matrix/create-matrix.js';
-
-// let width = 4;
-// let height = 3;
-
 export function getNeighbours(matrix, width) {
   for (let i = 0; i < matrix.length; i++) {
     let nw = i - 1 - width; // north-west
