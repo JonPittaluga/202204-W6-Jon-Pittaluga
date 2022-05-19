@@ -5,7 +5,7 @@ const renderCell = (cell) => {
   return `<div id="${cell.index}" class="cell cell--${status}"></div>`;
 };
 
-export const renderMatrix = () => {
+export default function renderMatrix() {
   const gridColumns = `grid-template-columns: repeat(${matrixValues.width}, 1fr)`;
   let html = `<div class="matrix" style="${gridColumns}">`;
   const getCellsRendered = matrix.map((cell) => renderCell(cell));
@@ -13,4 +13,4 @@ export const renderMatrix = () => {
   html += '</div>';
   // return 'hOLA';
   return html;
-};
+}

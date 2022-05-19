@@ -2,11 +2,11 @@ import { mapCells } from '../../../helpers/map-cells/map-cells.js';
 import { getNeighbours } from '../../../helpers/get-neighbours/get-neighbours.js';
 import { turnOnCells } from '../../../helpers/turn-on-cells/turn-on-cells.js';
 import { removeProperties } from '../../../helpers/remove-properties/remove-properties.js';
-import { lifeStatus } from '../life-status/life-status.js';
 import { filterAliveCells } from '../../../helpers/filter-alive-cells/filter-alive-cells.js';
 import { consoleRender } from '../../../rendering/console-render/console-render.js';
 import { renderMatrix } from '../../../rendering/render-matrix/render-matrix.js';
 import { matrixValues, isThereLife } from '../../../app.js';
+import { lifeStatus } from '../life-status/life-status.js';
 
 export function gameOfLife(matrix) {
   // Step 1: map cells to define their absolute position within the matrix -mutation-

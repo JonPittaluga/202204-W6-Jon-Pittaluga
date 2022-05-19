@@ -22,7 +22,7 @@ class Cell {
   }
 }
 
-export function createMatrix(width, height) {
+export default function createMatrix(width, height) {
   const matrixArr = [];
 
   for (let j = 0; j < height; j++) {
