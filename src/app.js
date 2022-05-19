@@ -1,88 +1,29 @@
-import { createMatrix } from './helpers/create-matrix/create-matrix.js';
-import { mapCells } from './helpers/map-cells/map-cells.js';
-import { getNeighbours } from './helpers/get-neighbours/get-neighbours.js';
-import { turnOnCells } from './helpers/turn-on-cells/turn-on-cells.js';
-import { removeProperties } from './helpers/remove-properties/remove-properties.js';
-import { lifeStatus } from './helpers/life-status/life-status.js';
-import { filterAliveCells } from './helpers/filter-alive-cells/filter-alive-cells.js';
-import { consoleRender } from './helpers/console-render/console-render.js';
+import { createMatrix } from './classes/game-of-life/create-matrix/create-matrix.js';
+import { gameOfLife } from './classes/game-of-life/game-of-life/game-of-life.js';
+import { renderMatrix } from './rendering/render-matrix/render-matrix.js';
+// import { intro } from './rendering/intro-texts/intro.js';
 
-const width = 150;
-const height = 100;
-const matrixStart = { minAlive: 5, maxAlive: 30 };
-const duration = 10000; // miliseconds
-const renderingSpeed = 100; // miliseconds
+export const width = 4;
+const height = 4;
 
-const matrix = createMatrix(width, height);
-
-const renderCell = (cell) => {
-  const status = cell.isAlive ? 'isAlive' : 'isDead';
-  return `<div id="${cell.index}" class="cell cell--${status}"></div>`;
+export const matrixStart = {
+  width: 4,
+  height: 3,
+  minAlive: 2,
+  maxAlive: 100,
+  duration: 5000,
+  renderingSpeed: 500,
 };
+export const duration = 5000; // miliseconds
+const renderingSpeed = 1000; // miliseconds
 
-const renderMatrix = () => {
-  const gridColumns = `grid-template-columns: repeat(${width}, 1fr)`;
-  let html = `<div class="matrix" style="${gridColumns}">`;
-  const getCellsRendered = matrix.map((cell) => renderCell(cell));
-  html += getCellsRendered.join('');
-  html += '</div>';
-  // return 'hOLA';
-  return html;
-};
-
-function startGameOfLife(durationMili) {
-  // Step 1: Define the size of the matrix
-  // const width = 40; // max400
-  // const height = 30; // max300
-
-  // Step 2: start the matrix
-  // Step 3: map cells to define their absolute position within the matrix -mutation-
-  mapCells(matrix, width, height);
-
-  // Step 4: for every cell creates an array with its neighbours -mutation-
-  getNeighbours(matrix, width);
-
-  // Step 5: some cells change its isAlive property to true. Accepts the mutable matrix, a min value and a maximum, being apercentage of the matrix length -mutation-
-  turnOnCells(matrix, matrixStart.minAlive, matrixStart.maxAlive);
-
-  // Hardcoded checks
-  // matrix[0].isAlive = true;
-  // matrix[1].isAlive = true;
-
-  // Step 6: reduces unused properties -mutation-
-  removeProperties(matrix);
-
-  // the matrix is ready, now let's render it in the console
-
-  let lifeExists = true;
-  const ecosystemIsOver = () => {
-    lifeExists = false;
-  };
-
-  function repeatCode() {
-    renderMatrix();
-    let aliveCells = filterAliveCells(matrix);
-    consoleRender(matrix);
-    lifeStatus(matrix);
-    if (aliveCells.length === 0) {
-      ecosystemIsOver();
-      console.log('lifeExists', lifeExists);
-    }
-    return aliveCells.length;
-  }
-
-  let intervalID = setInterval(repeatCode, renderingSpeed); // 50ms in console works
-  setTimeout(clearInterval, durationMili, intervalID);
-  // const headerInfo__intervalsValue = document.querySelector(
-  //   '.header-info__intervals--value'
-  // );
-  // headerInfo__intervalsValue.innerHTML = intervalID;
-}
+export const matrix = createMatrix(matrixStart.width, matrixStart.height);
+let lifeExists = true;
 
 // TODO: IMPROVE THE WAY ALL STARTS
 const fiatMatrix = () => {
-  startGameOfLife(duration); // minAlive, maxAlive, duration
-  console.log('exitOption');
+  gameOfLife(matrix); // minAlive, maxAlive, duration
+  // console.log('exitOption');
 };
 
 fiatMatrix();
@@ -109,13 +50,13 @@ const headerInfo__renderingValue = document.querySelector(
 );
 
 const matrixContainer = document.querySelector('.container');
-const matrixContainerId = document.querySelector('#matrix-container');
+export const matrixContainerId = document.querySelector('#matrix-container'); // TODO: Refactor this
 
 matrixContainerId.innerHTML = renderMatrix();
 // console.log(matrixContainerId.innerHTML);
 
-headerInfo__widthValue.innerHTML = width;
-headerInfo__heightValue.innerHTML = height;
-headerInfo__cellsValue.innerHTML = width * height;
-headerInfo__intervalsValue.innerHTML = duration / 1000 + 's';
-headerInfo__renderingValue.innerHTML = renderingSpeed + 'ms';
+headerInfo__widthValue.innerHTML = matrixStart.width;
+headerInfo__heightValue.innerHTML = matrixStart.height;
+headerInfo__cellsValue.innerHTML = matrixStart.width * matrixStart.height;
+headerInfo__intervalsValue.innerHTML = matrixStart.duration / 1000 + 's';
+headerInfo__renderingValue.innerHTML = matrixStart.renderingSpeed + 'ms';
