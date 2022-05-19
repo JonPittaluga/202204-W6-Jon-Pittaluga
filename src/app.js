@@ -6,11 +6,11 @@ import gameOfLife from '../src/logic/game-of-life/game-of-life.js';
 
 // To define the matrix values and its behaviour
 export const matrixValues = {
-  width: 120,
+  width: 140,
   height: 80,
   minAlive: 6,
   maxAlive: 100,
-  duration: 20000, // miliseconds
+  duration: 100000, // miliseconds
   renderingSpeed: 50, // miliseconds
 };
 
